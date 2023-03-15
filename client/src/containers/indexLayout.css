@@ -1,0 +1,19 @@
+.page {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 160px auto auto;
+  grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+  margin: 6px;
+}
+
+.page > * {
+  padding: 10px;
+}
+
+.content {
+  grid-area: content;
+  grid-column: span 2;
+}
