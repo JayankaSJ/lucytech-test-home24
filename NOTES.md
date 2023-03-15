@@ -2,6 +2,7 @@
 
 - Linter configured
 - Prettier configured
+- CORS configured
 - Dockerized 
 - All possible npm packages upgraded without peer dependency conflicts
 - Instead of redux legacy package [@reduxjs/toolkit](https://redux-toolkit.js.org/) introduced
@@ -13,9 +14,26 @@
 
 # Screens
 
-- docker shell
+### Client app
+
+![Client app](/screens/client_app_snapshot.png?raw=true "Client app")
+
+
+### Docker shell
+
+
 ![Docker shell](/screens/docker.png?raw=true "Docker shell")
-- tests
+
+
+### Tests
+
 ![Tests shell](/screens/tests.png?raw=true "Tests shell")
-- client app shell
+
+
+### Client app shell
+
 ![Client app shell](/screens/client_shell.png?raw=true "Client app shell")
+
+
+# Issues
+- server has encountered proxy issue
