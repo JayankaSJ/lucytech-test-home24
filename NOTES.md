@@ -4,6 +4,7 @@
 - Prettier configured
 - CORS configured
 - Dockerized 
+- styled components added
 - All possible npm packages upgraded without peer dependency conflicts
 - Instead of redux legacy package [@reduxjs/toolkit](https://redux-toolkit.js.org/) introduced
 - Folder structure enhanced

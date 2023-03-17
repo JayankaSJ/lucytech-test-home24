@@ -1,5 +1,6 @@
 import React, { FC, memo } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 import {
   getChildrenCategories,
   getIsCategoriesLoading,
@@ -7,7 +8,21 @@ import {
 import { RootState } from "store";
 import Loading from "components/Loading";
 
-import "./sidebar.css";
+const SidebarContainer = styled.div`
+  grid-area: sidebar;
+  background-color: lavender;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 0 0 8px;
+      padding: 8px 0;
+    }
+  }
+`;
 
 type SidebarProps = object;
 
@@ -18,7 +33,7 @@ const Sidebar: FC<SidebarProps> = () => {
   const isLoading = useSelector<RootState, boolean>(getIsCategoriesLoading);
 
   return (
-    <div className={"sidebar"}>
+    <SidebarContainer>
       <h3 data-testid="title">Kategorien</h3>
       {isLoading ? (
         <Loading />
@@ -33,7 +48,7 @@ const Sidebar: FC<SidebarProps> = () => {
           })}
         </ul>
       )}
-    </div>
+    </SidebarContainer>
   );
 };
 

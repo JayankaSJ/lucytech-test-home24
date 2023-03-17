@@ -1,14 +1,23 @@
 import React, { FC } from "react";
-import "./header.css";
+import styled from "styled-components";
 
 type HeaderProps = object;
 
+const HeaderContainer = styled.div`
+  grid-area: header;
+  background-color: lightblue;
+
+  input {
+    float: right;
+  }
+`;
+
 const Header: FC<HeaderProps> = () => {
   return (
-    <div className={"header"}>
+    <HeaderContainer>
       <strong>home24</strong>
       <input placeholder={"Search"} />
-    </div>
+    </HeaderContainer>
   );
 };
 

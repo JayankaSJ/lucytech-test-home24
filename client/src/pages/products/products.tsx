@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "store";
+import styled from "styled-components";
 import {
   getArticles,
   getIsArticlesLoading,
@@ -13,7 +14,11 @@ import { fetchCategory } from "reducers/thunks/categories.thunk";
 import Loading from "components/Loading";
 import ArticleCard from "./articleCard";
 
-import "./products.css";
+const ArticlesContainer = styled.div`
+  display: grid;
+  grid-gap: 26px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+`;
 
 type ProductsProps = object;
 
@@ -39,7 +44,7 @@ const Products: FC<ProductsProps> = () => {
           <small data-testid="category-article-count"> ({articleCount})</small>
         </h1>
       )}
-      <div className={"articles"}>
+      <ArticlesContainer>
         {articles.map((article, index: React.Key) => {
           return (
             <ArticleCard
@@ -49,7 +54,7 @@ const Products: FC<ProductsProps> = () => {
             />
           );
         })}
-      </div>
+      </ArticlesContainer>
     </>
   );
 };
