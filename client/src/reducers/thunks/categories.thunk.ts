@@ -3,14 +3,14 @@ import createAppAsyncThunk from "store/createAppAsyncThunk";
 import { executeApiCall } from "utils/executeApiCall";
 
 async function fetchCategoryCallback() {
-  const request = getCategory();
+    const request = getCategory();
 
-  const response = await executeApiCall(request);
+    const response = await executeApiCall(request);
 
-  return response?.categories || [];
+    return response?.categories || [];
 }
 
 export const fetchCategory = createAppAsyncThunk<string, void>(
-  "fetchCategory",
-  fetchCategoryCallback
+    "fetchCategory",
+    fetchCategoryCallback
 );

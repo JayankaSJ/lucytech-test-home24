@@ -6,16 +6,16 @@ import IndexLayout from "containers/indexLayout";
 const Products = React.lazy(() => import("../pages/products/products"));
 
 export default function ApplicationRouter() {
-  const routes = useRoutes([
-    {
-      element: <IndexLayout />,
-      children: [
+    const routes = useRoutes([
         {
-          path: "/",
-          element: <Products />,
+            element: <IndexLayout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Products />,
+                },
+            ],
         },
-      ],
-    },
-  ]);
-  return routes;
+    ]);
+    return routes;
 }

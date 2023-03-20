@@ -8,7 +8,7 @@ export const apiBaseUri = process.env.REACT_APP_API_BASE_URI;
 export const intlNumberFormatValues = ["de-DE", "currency", "EUR"];
 
 export const HttpConfig = {
-  baseURL: apiBaseUri,
-  timeout: parseInt(process.env.REACT_APP_API_TIMEOUT || "1000"),
-  headers: {},
+    baseURL: apiBaseUri,
+    timeout: parseInt(process.env.REACT_APP_API_TIMEOUT || "1000"),
+    headers: {},
 };

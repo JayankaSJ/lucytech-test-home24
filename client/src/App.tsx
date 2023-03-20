@@ -5,11 +5,11 @@ import ApplicationRoutes from "./routes";
 type AppProps = object;
 
 const App: FC<AppProps> = () => {
-  return (
-    <BrowserRouter>
-      <ApplicationRoutes />
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <ApplicationRoutes />
+        </BrowserRouter>
+    );
 };
 
 export default App;

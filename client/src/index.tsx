@@ -21,10 +21,10 @@ const rootElement = document.getElementById("root") as Element;
 const root = createRoot(rootElement) as Root;
 
 root.render(
-  <StrictMode>
-    <GlobalStyle />
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>
+    <StrictMode>
+        <GlobalStyle />
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </StrictMode>
 );
