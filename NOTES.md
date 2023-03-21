@@ -1,10 +1,14 @@
 # What have been done
 
+- Functionalities
+    - search is fixed
+    - add to cart added
 - Linter configured
 - Prettier configured
 - CORS configured
 - Dockerized 
 - styled components added
+- chakra ui added
 - All possible npm packages upgraded without peer dependency conflicts
 - Instead of redux legacy package [@reduxjs/toolkit](https://redux-toolkit.js.org/) introduced
 - Folder structure enhanced

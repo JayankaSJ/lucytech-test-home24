@@ -1,11 +1,6 @@
 # Todo
 
 ### Features
-- The original ui remains unchanged, can be enhanced in many ways.
-- The original functionality remains unchanged, can be enhanced in many ways.
-    - why: did not changed original look and feel due to optimization test
-- Search functionality can be fixed
-    - why: ui contains not functional components
 - Pagination can be introduced
     - why: large list loading index page
 
