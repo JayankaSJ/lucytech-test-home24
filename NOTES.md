@@ -3,6 +3,7 @@
 - Functionalities
     - search is fixed
     - add to cart added
+- Mobile responsiveness configured
 - Linter configured
 - Prettier configured
 - CORS configured
