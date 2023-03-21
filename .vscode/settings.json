@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "testid"
-    ]
+    ],
+    "typescript.enablePromptUseWorkspaceTsdk": true
 }

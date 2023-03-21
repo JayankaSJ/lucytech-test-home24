@@ -1,5 +1,6 @@
 import React from "react";
-import { screen, render } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "tests/test-utils";
 import ArticleCard from "pages/products/articleCard";
 
 describe("ArticleCard", () => {
@@ -19,7 +20,7 @@ describe("ArticleCard", () => {
                 },
             ],
         } as Article;
-        render(<ArticleCard article={article} />);
+        renderWithProviders(<ArticleCard article={article} />);
 
         expect(screen.getByTestId("article")).toBeInTheDocument();
 

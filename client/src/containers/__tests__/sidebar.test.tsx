@@ -18,6 +18,11 @@ const initialState = {
 } as CategorySliceState;
 
 describe("Sidebar", () => {
+    test("sidebar title", async () => {
+        renderWithProviders(<Sidebar />);
+        expect(screen.queryByText<HTMLElement>("home24")).toBeInTheDocument();
+    });
+
     test("sidebar loading", async () => {
         const loadingState = cloneDeep(initialState);
         loadingState.isLoading = true;
@@ -27,19 +32,6 @@ describe("Sidebar", () => {
             },
         });
         expect(screen.queryByText<HTMLElement>(/Loading/i)).toBeInTheDocument();
-    });
-
-    test("sidebar title", async () => {
-        renderWithProviders(<Sidebar />, {
-            preloadedState: {
-                categories: initialState,
-            },
-        });
-
-        // should show title
-        const title = screen.getByTestId<HTMLElement>("title");
-        expect(title).toBeInTheDocument();
-        expect(title).toHaveTextContent(/Kategorien/i);
     });
 
     test("sidebar with data", async () => {

@@ -1,20 +1,33 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchCategory } from "./thunks/categories.thunk";
 
 export type ArticlesSliceState = {
     items: Article[];
+    dashboardItems: Article[];
     isLoading: boolean;
 };
 
 const initialState = {
     items: [],
+    dashboardItems: [],
     isLoading: false,
 } as ArticlesSliceState;
 
 const articleSlice = createSlice({
     name: "articles",
     initialState,
-    reducers: {},
+    reducers: {
+        filterArticles(_state, _action: PayloadAction<string>) {
+            const searchKey = _action.payload?.toLowerCase();
+            if (searchKey) {
+                _state.dashboardItems = _state.items.filter((i) =>
+                    i.name?.toLowerCase().includes(searchKey)
+                );
+            } else {
+                _state.dashboardItems = _state.items;
+            }
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchCategory.pending, (state) => {
             state.isLoading = true;
@@ -25,6 +38,7 @@ const articleSlice = createSlice({
                 const { categoryArticles } = mobelCategory;
 
                 state.items = categoryArticles.articles;
+                state.dashboardItems = state.items;
             }
             state.isLoading = false;
         });
@@ -34,5 +48,6 @@ const articleSlice = createSlice({
     },
 });
 
-const { reducer } = articleSlice;
+const { reducer, actions } = articleSlice;
+export const { filterArticles } = actions;
 export default reducer;

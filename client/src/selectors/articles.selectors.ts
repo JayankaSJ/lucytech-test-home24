@@ -12,6 +12,10 @@ export const getArticles = createSelector(_getArticles, (state) => {
     return state.items;
 });
 
+export const getDashboardArticles = createSelector(_getArticles, (state) => {
+    return state.dashboardItems;
+});
+
 export const getIsArticlesLoading = createSelector(_getArticles, (state) => {
     return state.isLoading;
 });

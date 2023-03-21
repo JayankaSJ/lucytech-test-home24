@@ -1,23 +1,50 @@
 import React, { FC } from "react";
-import styled from "styled-components";
+import { IconButton, Flex, Text } from "@chakra-ui/react";
+import { FiMenu } from "react-icons/fi";
+import Cart from "components/cart";
+import GlobalSearchInput from "components/globalSearchInput";
 
-type HeaderProps = object;
+type HeaderProps = {
+    onOpen?: () => void;
+};
 
-const HeaderContainer = styled.div`
-    grid-area: header;
-    background-color: lightblue;
-
-    input {
-        float: right;
-    }
-`;
-
-const Header: FC<HeaderProps> = () => {
+const Header: FC<HeaderProps> = ({ onOpen, ...rest }) => {
     return (
-        <HeaderContainer>
-            <strong>home24</strong>
-            <input placeholder={"Search"} />
-        </HeaderContainer>
+        <Flex
+            ml={{ base: 0, md: 60 }}
+            px="4"
+            position="sticky"
+            top="0"
+            height="20"
+            zIndex="1"
+            alignItems="center"
+            bg="white"
+            borderBottomWidth="1px"
+            borderBottomColor="gray.200"
+            justifyContent={{ base: "space-between", md: "flex-end" }}
+            {...rest}
+        >
+            <IconButton
+                display={{ base: "flex", md: "none" }}
+                onClick={onOpen}
+                variant="outline"
+                aria-label="open menu"
+                icon={<FiMenu />}
+            />
+
+            <Text
+                display={{ base: "flex", md: "none" }}
+                fontSize="2xl"
+                fontFamily="monospace"
+                fontWeight="bold"
+                data-testid={"title"}
+            >
+                home24
+            </Text>
+
+            <GlobalSearchInput />
+            <Cart />
+        </Flex>
     );
 };
 

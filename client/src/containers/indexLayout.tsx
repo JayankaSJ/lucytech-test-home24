@@ -1,6 +1,12 @@
 import React, { FC, memo } from "react";
 import { Outlet } from "react-router";
-import styled from "styled-components";
+import {
+    Box,
+    Drawer,
+    DrawerContent,
+    VStack,
+    useDisclosure,
+} from "@chakra-ui/react";
 
 import Header from "./header";
 import Sidebar from "./sidebar";
@@ -8,36 +14,41 @@ import Footer from "./footer";
 
 type IndexLayoutProps = object;
 
-const IndexLayoutContainer = styled.div`
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 160px auto auto;
-    grid-template-areas:
-        "header header header"
-        "sidebar content content"
-        "footer footer footer";
-    margin: 6px;
-
-    > * {
-        padding: 10px;
-    }
-`;
-
-const Content = styled.div`
-    grid-area: content;
-    grid-column: span 2;
-`;
+const SIDE_BAR_WIDTH = 60;
 
 const IndexLayout: FC<IndexLayoutProps> = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
-        <IndexLayoutContainer>
-            <Header />
-            <Sidebar />
-            <Content>
-                <Outlet />
-            </Content>
-            <Footer />
-        </IndexLayoutContainer>
+        <Box minH="100vh" bg="gray.100">
+            <Sidebar
+                onClose={() => onClose}
+                display={{ base: "none", md: "block" }}
+                sideBarWidth={SIDE_BAR_WIDTH}
+            />
+            <Drawer
+                autoFocus={false}
+                isOpen={isOpen}
+                placement="left"
+                onClose={onClose}
+                returnFocusOnClose={false}
+                onOverlayClick={onClose}
+                size="full"
+            >
+                <DrawerContent>
+                    <Sidebar onClose={onClose} sideBarWidth={SIDE_BAR_WIDTH} />
+                </DrawerContent>
+            </Drawer>
+
+            <Header onOpen={onOpen} />
+            <VStack ml={{ base: 0, md: SIDE_BAR_WIDTH }} spacing="24px">
+                <Box w="100%">
+                    <Box w="100%" p="4">
+                        <Outlet />
+                    </Box>
+                    <Footer />
+                </Box>
+            </VStack>
+        </Box>
     );
 };
 

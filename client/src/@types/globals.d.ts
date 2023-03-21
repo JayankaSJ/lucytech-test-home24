@@ -13,6 +13,11 @@ declare global {
         images: Image[];
     };
 
+    export type CartItem = {
+        count: number;
+        article: Article;
+    };
+
     export type ChildCategory = {
         name: string;
         urlPath: string;
