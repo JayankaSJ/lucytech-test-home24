@@ -21,7 +21,7 @@
 
 ### Client app
 
-![Client app](/screens/client_app_snapshot.png?raw=true "Client app")
+![Client app](/screens/client_app_snapshot_with_ui.png?raw=true "Client app")
 
 
 ### Docker shell
